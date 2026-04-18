@@ -4,6 +4,7 @@ using OOP.Inheritance;
 using OOP.Polymorphism;
 using OOP.Coupling;
 using OOP.Composition;
+using SOLID.S;
 
 ////ENCAPSULATION///////
 //Bad example
@@ -112,3 +113,24 @@ goodOrderWithSms.PlaceOrder();
 CarComposition carComposition = new();
 carComposition.StartCar();
 ///////////////////////////
+
+/////////////////////// SOLID /////////////////////////
+/// 
+/// Single Responsibility Principle (SRP) /////////////
+/// Bad example
+var myUser = new BadUser
+{
+    Name = "DevOpsWizard",
+    Email = "wizard@example.com"
+};
+
+myUser.Register();
+
+/// Good example
+UserService userService = new(new EmailSender());
+userService.Register(new User { UserName = "Isaac", Email= "isaacbc42@gmail.com"});
+////////////////////////////////////////////////////////
+
+
+////////////// Open/Closed Principle (OCP) /////////////
+
